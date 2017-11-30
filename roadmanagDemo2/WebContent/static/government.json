@@ -1,25 +1,25 @@
 [
-  {"id":"1","text":"海淀区","type":"government","color":"红色","areaid":"areahaidian",
+  {"id":"1","text":"海淀区","type":"government","color":"红色","areaid":"areahaidian","area":"123",
   	"src":[
             "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
         ]
   },
-  {"id":"2","text":"西城区","type":"government","color":"黄色","areaid":"areaxichengqu",
+  {"id":"2","text":"西城区","type":"government","color":"黄色","areaid":"areaxichengqu","area":"123",
   	"src":[
             "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
         ]
   },
-  {"id":"3","text":"东城区","type":"government","color":"绿色","areaid":"areadongchengqu",
+  {"id":"3","text":"东城区","type":"government","color":"绿色","areaid":"areadongchengqu","area":"123",
   	"src":[
             "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
         ]
   },
-  {"id":"4","text":"朝阳区","type":"government","color":"蓝色","areaid":"areachaoyangqu",
+  {"id":"4","text":"朝阳区","type":"government","color":"蓝色","areaid":"areachaoyangqu","area":"123",
   	"src":[
             "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
         ]
   },
-  {"id":"5","text":"丰台区","type":"government","color":"珊瑚色","areaid":"areafengtaiqu",
+  {"id":"5","text":"丰台区","type":"government","color":"珊瑚色","areaid":"areafengtaiqu","area":"123",
   	"src":[
             "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
         ]

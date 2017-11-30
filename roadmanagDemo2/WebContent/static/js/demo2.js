@@ -105,6 +105,7 @@ $(function () {
                     	}*/
                     },
                     onClick: function(row) {
+                    	$('#tree-menu').tree('check', row.target);
                     	$('.container-wrapper .treegrid-wrapper .title h4').text(row.text)
                     	$('.set-page').attr('src', row.src);
                     	$('.input-list:first').text('')
@@ -229,6 +230,11 @@ $(function () {
 				column.push({title:'长度(m)',field:'length',width:_width})
 			}else if(data.type == 'government'){
 				column.push({title:'颜色',field:'color',width:_width})
+				column.push({title:'面积',field:'area',width:_width})
+			}else if(data.type == 'bridge'){
+				column.push({title:'类型',field:'classType',width:_width})
+				column.push({title:'长度',field:'length',width:_width})
+
 			}
 
 
@@ -272,6 +278,8 @@ $(function () {
 		    	$('.show').show()
 		    }
 		});
+		
+
 		$('.container-wrapper .fa-close').on('click', function() {
 			if ($(this).parents('.title').parent().hasClass('show')) {
 				if (flag == 1) {
@@ -622,6 +630,7 @@ function isContains(str, substr) {
     return str.indexOf(substr) >= 0;
 }
 function showLabelDescript(id){
+
 	var html = null;
 	//console.log(id)
 	var data =null;
@@ -723,12 +732,16 @@ function showLabelDescript(id){
 			  async:false
 			})
 	}
-	$('.show h4 span').text(chinese (data.type))
+	
+
 	for(var i in data){
 		if (data[i].labelid == id||data[i].areaid== id||data[i].lineid==id){
+
 			$('.swiper-wrapper').text('')
 			$('.show-list').text('')
 			for(var j in data[i]){
+				$('.show h4 span').text(chinese (data[i].type))
+				
 				if (j != 'lineid' && j != 'areaid' && j != 'labelid' && j != 'id' && j != 'state' && j != '_parentId' && j != 'type') {
 					html = `<li class="show-item">
 								<label>${chinese (j)}</label>
