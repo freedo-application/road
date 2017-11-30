@@ -124,6 +124,36 @@ $(function(){
 					roll : FreeDo.Math.toRadians(0)      
 				},
 			});
+	/*----------------------------------加道路---------------------------------------*/
+	var scene=myViewer.scene;
+	var userdata1 =[
+		{lon:117.25505875721869,lat:39.98177210365956,height:5},
+		{lon:117.28483434827947,lat:39.98298808144714,height:5}
+	];
+	
+	var userdata2 =[
+		{lon:117.28472774151653,lat:39.98864346369405,height:5},
+		{lon:117.28500034922028,lat:39.97743018010012,height:5},
+		{lon:117.29090037961728,lat:39.977495571595995,height:5},
+		{lon:117.29312110691328,lat:39.97768005029566,height:5}
+	];
+	
+	var userdata3 =[
+		{lon:117.29088958460301,lat:39.97750388054197,height:5},
+		{lon:117.29149152474821,lat:39.97386967567217,height:5},
+		{lon:117.29231871686834,lat:39.972028085422174,height:5},
+		{lon:117.29260402553533,lat:39.97042628238812,height:5}
+	];
+	var imgurl1 = "./static/img/road/road1.jpg";
+	var imgurl2 = "./static/img/road/road2.jpg";
+	var imgurl3 = "./static/img/road/road3.jpg";
+	var imgurl4 = "./static/img/road/road4.jpg";
+	//画路
+	FreeDoTool.drawRoad(scene,userdata1,4,imgurl3);
+	FreeDoTool.drawRoad(scene,userdata2,4,imgurl3);
+	FreeDoTool.drawRoad(scene,userdata3,4,imgurl3);
+
+/*----------------------------------加道路---------------------------------------*/
 });
 function initEarth(id){
 	var viewer = new Freedo.Viewer(

@@ -369,3 +369,394 @@ FreeDoTool.toggleModel=function(primitive){
 FreeDoTool.changeColor=function(primitive,red,green,blue,alpha){
 	primitive.color=new FreeDo.Color(red,green,blue,alpha);
 }
+///////////////////////////自定义Geometry用到的函数
+/**
+ * 地理坐标转世界坐标
+ * @param {*地理坐标} HPRArray 
+ */
+FreeDoTool.TransfPointToCartesian3 = function (HPRArray) {
+  var cartesianarray = []
+  for (let i = 0; i < HPRArray.length; i++) {
+    cartesianarray[i] = FreeDo.Cartesian3.fromDegrees(HPRArray[i].lon, HPRArray[i].lat, HPRArray[i].height)
+  }
+  return cartesianarray
+}
+
+/**
+ *世界坐标转换自身坐标  
+ * @param {*要进行转换的世界坐标} cartesianarray 
+ * @param {*原点} o 
+ */
+var o = new FreeDo.Cartesian3()
+FreeDoTool.TransfCartesian3ToSelf = function (cartesianarray) {
+  var array = []
+  for (var i = 0; i < cartesianarray.length; i++) {
+    array[i] = new FreeDo.Cartesian3(cartesianarray[i].x - o.x, cartesianarray[i].y - o.y, cartesianarray[i].z - o.z)
+  }
+  return array
+}
+
+/**
+ * n个点拓宽后得到的2n个点
+ * @param {*地理坐标（经度、纬度、高度）} HPRArray 
+ * @param {*道路中心到路边的距离} width 
+ */
+FreeDoTool.getPointArray = function (cartesians, relarray, width) {
+
+  // 第一点第二点构成的向量
+  var xl1 = new FreeDo.Cartesian3()
+  // 第二点第三点构成的向量
+  var xl2 = new FreeDo.Cartesian3()
+  // 两个法向量
+  var f1 = new FreeDo.Cartesian3()
+  var f2 = new FreeDo.Cartesian3()
+  // 两个单位法向量
+  var normalxl1 = new FreeDo.Cartesian3()
+  var normalxl2 = new FreeDo.Cartesian3()
+  // 合向量
+  var addxl1 = new FreeDo.Cartesian3()
+  var addxl2 = new FreeDo.Cartesian3()
+  // 两个点
+  var p1 = new FreeDo.Cartesian3()
+  var p2 = new FreeDo.Cartesian3()
+  //
+  var midwidth = null
+  // 夹角
+  var angle = null
+  // 存放计算出来的点
+  var calculatearray = []
+  // 判断点的个数
+  switch (relarray.length) {
+    case 0:
+
+      break
+    case 1:
+
+      break
+
+    case 2:
+      // 以该点为起始点的向量
+      FreeDo.Cartesian3.subtract(relarray[1], relarray[0], xl1)
+      // 该向量的两个法向量
+      FreeDo.Cartesian3.cross(cartesians[0], xl1, f1)
+      FreeDo.Cartesian3.cross(xl1, cartesians[0], f2)
+      // 单位法向量
+      FreeDo.Cartesian3.normalize(f1, normalxl1)
+      FreeDo.Cartesian3.normalize(f2, normalxl2)
+      // 以width为模长的法向量
+      normalxl1.x = normalxl1.x * width
+      normalxl1.y = normalxl1.y * width
+      normalxl1.z = normalxl1.z * width
+      normalxl2.x = normalxl2.x * width
+      normalxl2.y = normalxl2.y * width
+      normalxl2.z = normalxl2.z * width
+      // 求两个点的坐标(起点)
+      FreeDo.Cartesian3.add(relarray[0], normalxl1, p1)
+      FreeDo.Cartesian3.add(relarray[0], normalxl2, p2)
+      // 将两个点存放到数组中
+      calculatearray.push(new FreeDo.Cartesian3(p1.x, p1.y, p1.z))
+      calculatearray.push(new FreeDo.Cartesian3(p2.x, p2.y, p2.z))
+
+      // 求两个点的坐标（终点）
+      FreeDo.Cartesian3.add(relarray[1], normalxl1, p1)
+      FreeDo.Cartesian3.add(relarray[1], normalxl2, p2)
+      // 将两个点存放到数组中
+      calculatearray.push(new FreeDo.Cartesian3(p1.x, p1.y, p1.z))
+      calculatearray.push(new FreeDo.Cartesian3(p2.x, p2.y, p2.z))
+      break
+
+    default:
+
+      // 计算是否有三点一线的情况，有则删去中间点
+      for (let i = 1; i < relarray.length - 1; i++) {
+        // 计算第二个点和第一个点的差值，得到向量1
+        FreeDo.Cartesian3.subtract(relarray[i], relarray[i - 1], xl1)
+        // 计算第三个点和第二个点的差值，得到向量2
+        FreeDo.Cartesian3.subtract(relarray[i + 1], relarray[i], xl2)
+        // 判断两个向量的夹角是否为0
+        if (FreeDo.Cartesian3.angleBetween(xl1, xl2) == 0) {
+          // 如果条件成立则删除中间点
+          relarray.splice(i--, 1)
+        }
+      }
+      for (let i = 0; i < relarray.length; i++) {
+        // 第一个点
+        if (i == 0) {
+          // 以该点为起始点的向量
+          FreeDo.Cartesian3.subtract(relarray[i + 1], relarray[i], xl1)
+          // 该向量的两个法向量
+          FreeDo.Cartesian3.cross(cartesians[i], xl1, f1)
+          FreeDo.Cartesian3.cross(xl1, cartesians[i], f2)
+          // 单位法向量
+          FreeDo.Cartesian3.normalize(f1, normalxl1)
+          FreeDo.Cartesian3.normalize(f2, normalxl2)
+          // 以width为模长的法向量
+          normalxl1.x = normalxl1.x * width
+          normalxl1.y = normalxl1.y * width
+          normalxl1.z = normalxl1.z * width
+          normalxl2.x = normalxl2.x * width
+          normalxl2.y = normalxl2.y * width
+          normalxl2.z = normalxl2.z * width
+          // 求两个点的坐标
+          FreeDo.Cartesian3.add(relarray[i], normalxl1, p1)
+          FreeDo.Cartesian3.add(relarray[i], normalxl2, p2)
+          // 将两个点存放到数组中
+          calculatearray.push(new FreeDo.Cartesian3(p1.x, p1.y, p1.z))
+          calculatearray.push(new FreeDo.Cartesian3(p2.x, p2.y, p2.z))
+
+        // 最后一个点
+        } else if (i == relarray.length - 1) {
+          // 以该点为起始点的向量
+          FreeDo.Cartesian3.subtract(relarray[i], relarray[i - 1], xl1)
+          // 该向量的两个法向量
+          FreeDo.Cartesian3.cross(cartesians[i], xl1, f1)
+          FreeDo.Cartesian3.cross(xl1, cartesians[i], f2)
+          // 单位法向量
+          FreeDo.Cartesian3.normalize(f1, normalxl1)
+          FreeDo.Cartesian3.normalize(f2, normalxl2)
+          // 以width为模长的法向量
+          normalxl1.x = normalxl1.x * width
+          normalxl1.y = normalxl1.y * width
+          normalxl1.z = normalxl1.z * width
+          normalxl2.x = normalxl2.x * width
+          normalxl2.y = normalxl2.y * width
+          normalxl2.z = normalxl2.z * width
+          // 求两个点的坐标
+          FreeDo.Cartesian3.add(relarray[i], normalxl1, p1)
+          FreeDo.Cartesian3.add(relarray[i], normalxl2, p2)
+          // 将两个点存放到数组中
+          calculatearray.push(new FreeDo.Cartesian3(p1.x, p1.y, p1.z))
+          calculatearray.push(new FreeDo.Cartesian3(p2.x, p2.y, p2.z))
+        // 中间的点
+        } else {
+          // 求中间点法向量的模长
+          FreeDo.Cartesian3.subtract(relarray[i - 1], relarray[i], xl1)
+          FreeDo.Cartesian3.subtract(relarray[i + 1], relarray[i], xl2)
+          angle = FreeDo.Cartesian3.angleBetween(xl1, xl2) / 2
+          midwidth = width / Math.sin(angle)
+
+          FreeDo.Cartesian3.subtract(relarray[i + 1], relarray[i], xl1)
+          FreeDo.Cartesian3.subtract(relarray[i], relarray[i - 1], xl2)
+          FreeDo.Cartesian3.normalize(xl1, xl1)
+          FreeDo.Cartesian3.normalize(xl2, xl2)
+          FreeDo.Cartesian3.add(xl1, xl2, addxl1)
+
+          FreeDo.Cartesian3.cross(cartesians[i], addxl1, f1)
+          FreeDo.Cartesian3.normalize(f1, normalxl1)
+          normalxl1.x = normalxl1.x * midwidth
+          normalxl1.y = normalxl1.y * midwidth
+          normalxl1.z = normalxl1.z * midwidth
+          FreeDo.Cartesian3.add(relarray[i], normalxl1, p1)
+
+          FreeDo.Cartesian3.cross(addxl1, cartesians[i], f2)
+          FreeDo.Cartesian3.normalize(f2, normalxl2)
+          normalxl2.x = normalxl2.x * midwidth
+          normalxl2.y = normalxl2.y * midwidth
+          normalxl2.z = normalxl2.z * midwidth
+          FreeDo.Cartesian3.add(relarray[i], normalxl2, p2)
+
+          calculatearray.push(new FreeDo.Cartesian3(p1.x, p1.y, p1.z))
+          calculatearray.push(new FreeDo.Cartesian3(p2.x, p2.y, p2.z))
+        }
+      }
+      break
+  }
+  return { c3array: cartesians, c3array2: calculatearray }
+}
+
+/**
+ * 绘制道路
+ * @param {场景} scene 
+ * @param {经度、纬度、高度数组} HPRArray 
+ * @param {路宽} roadwidth 
+ */
+FreeDoTool.drawRoad = function (scene, HPRArray, roadwidth,imgurl) {
+  // 输入系列点后转换成世界坐标
+  var cartesians1 = FreeDoTool.TransfPointToCartesian3(HPRArray)
+  o.x = cartesians1[0].x
+  o.y = cartesians1[0].y
+  o.z = cartesians1[0].z
+  var relarray1 = FreeDoTool.TransfCartesian3ToSelf(cartesians1)
+  // 点拓宽后返回的结果1
+  var result1 = FreeDoTool.getPointArray(cartesians1, relarray1, roadwidth)
+  // 拓宽后的点
+  var calculatearray1 = result1.c3array2
+  // 存放路基点的数组
+  var HPRArray2 = []
+  for (let i = 0; i < HPRArray.length; i++) {
+    HPRArray2[i] = { lon: HPRArray[i].lon, lat: HPRArray[i].lat, height: HPRArray[i].height - 3 }
+  }
+  // 路基宽
+  var roadbasewidth = roadwidth+4
+  // 输入系列点后转换成世界坐标
+  var cartesians2 = FreeDoTool.TransfPointToCartesian3(HPRArray2)
+  var relarray2 = FreeDoTool.TransfCartesian3ToSelf(cartesians2)
+  // 点拓宽后返回的结果2
+  var result2 = FreeDoTool.getPointArray(cartesians2, relarray2, roadbasewidth)
+  // 拓宽后的点
+  var calculatearray2 = result2.c3array2
+
+  //	顶点位置坐标数组
+  var p = []
+
+  for (let i = 0; i < calculatearray2.length; i++) {
+    if (i % 2 == 0) {
+      p.push(calculatearray2[i].x)
+      p.push(calculatearray2[i].y)
+      p.push(calculatearray2[i].z)
+
+      p.push(calculatearray1[i].x)
+      p.push(calculatearray1[i].y)
+      p.push(calculatearray1[i].z)
+    }else {
+      p.push(calculatearray1[i].x)
+      p.push(calculatearray1[i].y)
+      p.push(calculatearray1[i].z)
+
+      p.push(calculatearray2[i].x)
+      p.push(calculatearray2[i].y)
+      p.push(calculatearray2[i].z)
+    }
+  }
+
+  var positions = new Float64Array(p)
+  // console.log(positions)
+
+  // 顶点纹理坐标数组
+  var t = []
+  var d1 = null
+  var d2 = null
+  var d = null
+  var tu1 = 0.0
+  var tu2 = 0.0
+  var tu3 = 0.0
+  var tu4 = 0.0
+
+  t.push(tu1, 0.0)
+  t.push(tu2, 0.1)
+  t.push(tu3, 0.9)
+  t.push(tu4, 0.91)
+  var range1 = result1.c3array.length - 1
+  var num = roadwidth * 2 + Math.sqrt(4 * 4 + 3 * 3) * 2
+  for (let i = 0; i < range1; i++) {
+    d1 = FreeDo.Cartesian3.distance(calculatearray1[2 * i + 2], calculatearray1[2 * i]) / num
+    d2 = FreeDo.Cartesian3.distance(calculatearray1[2 * i + 3], calculatearray1[2 * i + 1]) / num
+    d = (d1 + d2) / 2
+    tu1 = tu1 + d
+    tu2 = tu2 + d
+    tu3 = tu3 + d
+    tu4 = tu4 + d
+    t.push(tu1, 0.0)
+    t.push(tu2, 0.1)
+    t.push(tu3, 0.9)
+    t.push(tu4, 0.91)
+  }
+  var texCoords = new Float32Array(t)
+  console.log(t)
+
+
+  //	三角形索引数组。
+  var ind = []
+  var range2 = (result1.c3array.length - 2) * 4 + 2
+  for (let i = 0; i <= range2; i++) {
+    if ((i - 3) % 4 != 0) {
+      ind.push(i + 0)
+      ind.push(i + 4)
+      ind.push(i + 5)
+      ind.push(i + 5)
+      ind.push(i + 1)
+      ind.push(i + 0)
+    }
+  }
+  var indices = new Uint16Array(ind)
+  // console.log(indices)
+
+  var geometry = new FreeDo.Geometry({
+    attributes: {
+      position: new FreeDo.GeometryAttribute({
+        componentDatatype: FreeDo.ComponentDatatype.DOUBLE,
+        componentsPerAttribute: 3,
+        values: positions
+      }),
+      st: new FreeDo.GeometryAttribute({
+        componentDatatype: FreeDo.ComponentDatatype.FLOAT,
+        componentsPerAttribute: 2,
+        values: texCoords
+      })
+    },
+    indices: indices,
+    primitiveType: FreeDo.PrimitiveType.TRIANGLES,
+    boundingSphere: FreeDo.BoundingSphere.fromVertices(positions)
+  })
+
+  var instance = new FreeDo.GeometryInstance({
+    geometry: geometry,
+    modelMatrix: new FreeDo.Matrix4(
+      1, 0, 0, o.x,
+      0, 1, 0, o.y,
+      0, 0, 1, o.z,
+      0, 0, 0, 1
+    ),
+    attributes: {
+      color: FreeDo.ColorGeometryInstanceAttribute.fromColor(FreeDo.Color.RED)
+    },
+    id: 'trangle'
+  })
+
+  // scene.primitives.add(new FreeDo.Primitive({
+  //   geometryInstances: instance,
+  //   appearance: new FreeDo.PerInstanceColorAppearance({
+  //     flat: true,
+  //     translucent: false
+  //   })
+  // }))
+
+  scene.primitives.add(new FreeDo.Primitive({
+    geometryInstances: instance,
+    appearance: new FreeDo.MaterialAppearance({
+      material: new FreeDo.Material({
+        fabric: {
+          type: 'Image',
+          uniforms: {
+            image: imgurl
+          }
+        }
+      })
+
+    })
+  }))
+
+//   //xiaoffy add
+//   var geometry1 = new FreeDo.Geometry({
+//     attributes: {
+//       position: new FreeDo.GeometryAttribute({
+//         componentDatatype: FreeDo.ComponentDatatype.DOUBLE,
+//         componentsPerAttribute: 3,
+//         values: positions
+//       })
+//     },
+//     indices: indices,
+//     primitiveType: FreeDo.PrimitiveType.LINES ,
+//     boundingSphere: FreeDo.BoundingSphere.fromVertices(positions)
+//   })
+//   var instance1 = new FreeDo.GeometryInstance({
+//     geometry: geometry1,
+//     modelMatrix: new FreeDo.Matrix4(
+//       1, 0, 0, o.x,
+//       0, 1, 0, o.y,
+//       0, 0, 1, o.z,
+//       0, 0, 0, 1
+//     ),
+//     attributes: {
+//       color: FreeDo.ColorGeometryInstanceAttribute.fromColor(FreeDo.Color.RED)
+//     },
+//     id: 'lines'
+//   })
+//  scene.primitives.add(new FreeDo.Primitive({
+//     geometryInstances: instance1,
+//     appearance: new FreeDo.PerInstanceColorAppearance({
+//       flat: true,
+//       translucent: false
+//     })
+//   }))
+}
