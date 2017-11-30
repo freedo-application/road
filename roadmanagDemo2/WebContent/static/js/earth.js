@@ -2,7 +2,7 @@ var myViewer = null;
 $(function(){
 	myViewer = initEarth("earth");
 	//屏蔽左下角图标
-	myViewer._cesiumWidget._creditContainer.style.display="none";
+	//myViewer._cesiumWidget._creditContainer.style.display="none";
 	//道路和地名
 	yingxiang = CoverageUtil.addImage();
 	//var dixing = CoverageUtil.addTitle();
