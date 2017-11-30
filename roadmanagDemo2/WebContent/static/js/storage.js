@@ -112,6 +112,15 @@ function chinese (text) {
 		case "color":
 			return "颜色："
 			break;
+		case "area":
+			return "面积："
+			break;
+		case "limitWeight":
+			return "限重："
+			break;
+		case "classType":
+			return "类型："
+			break;
 		
 
 		
