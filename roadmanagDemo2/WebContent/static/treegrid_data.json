@@ -1,0 +1,7 @@
+
+
+[
+  {"id":1,"text":"pinModel1","lon":"40","name":"文件名","lat":"24","height":"100","roll":"40","pitch":"24","position":"12","X":"1.3","Y":"2","Z":"0.8"},
+  {"id":2,"text":"pinModel2","lon":"40","name":"文件名","lat":"24","height":"100","roll":"40","pitch":"24","position":"12","X":"1.3","Y":"2","Z":"0.8"},
+  {"id":3,"text":"pinModel3","lon":"40","name":"文件名","lat":"24","height":"100","roll":"40","pitch":"24","position":"12","X":"1.3","Y":"2","Z":"0.8"}
+]

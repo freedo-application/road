@@ -1,0 +1,23 @@
+[
+  {"id":"1","labelid":"hospital1","text":"医院1","type":"hospital","phone":"1090111","person":"张三","class":"一级","lon":"20","lat":"10","height":"30",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"2","labelid":"hospital2","text":"医院2","type":"hospital","phone":"1090111","person":"张三","class":"一级","lon":"20","lat":"10","height":"30",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"3","labelid":"hospital3","text":"医院3","type":"hospital","phone":"1090111","person":"张三","class":"一级","lon":"20","lat":"10","height":"30",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"4","labelid":"hospital4","text":"医院4","type":"hospital","phone":"1090111","person":"张三","class":"一级","lon":"20","lat":"10","height":"30",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+}
+	
+]

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基础信息管理</title>
+	<link rel="stylesheet" href="static/css/font-awesome.css">
+	<link rel="stylesheet" href="static/css/iconfont.css">
+	<link rel="stylesheet" href="static/css/reset.css">
+	<link rel="stylesheet" href="static/css/easyui.css">
+	<link rel="stylesheet" href="static/swiper/swiper-3.3.1.min.css">
+	<link rel="stylesheet" href="static/css/demo.css">
+	<link rel="stylesheet" href="static/js/compass/style/compass.css">
+	<script src="static/js/jquery-3.2.1.min.js"></script>
+	<script src="static/js/jquery.easyui.min.js"></script>
+	<script src="static/swiper/swiper-3.3.1.min.js"></script>
+	
+	<!-- <link href="http://res.gbim360.com/lib/freedo/rel/1.4.0.171017/Freedo/Widgets/widgets.css" rel="stylesheet">
+	<script src="http://res.gbim360.com/lib/freedo/rel/1.4.0.171017/Freedo/Freedo.js"></script>
+	<script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
+	<script src="http://res2.gbim360.com/projects/FreedoHolo3DForWeb/develop/API/FreedoX.js"></script> -->
+	
+	<link href="http://res.gbim360.com/lib/freedo/rel/1.4.0.171103/Freedo/Widgets/widgets.css" rel="stylesheet">
+    <script src="http://res.gbim360.com/lib/freedo/rel/1.4.0.171103/Freedo/Freedo.js"></script>
+    <script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
+    <script src="http://res.gbim360.com/lib/freedoX/[FDVERSION]/API/FreedoX.js"></script>
+	
+	
+</head>
+<body>
+	<div class="content-wrapper">
+		<div class="content">
+			
+			<div class="nav-wrapper clearfix">
+				<ul class="nav">
+					<li class="item" id="basic">基础信息管理</li>
+					<!-- <li class="item" id="pinModel">pinmodel播放</li> -->
+				</ul>
+			</div>
+			
+			<div class="container-wrapper" >
+				<div id="earth"></div>
+				<div class="tree-wrapper">
+					<ul id="tree-menu" class="easyui-tree tree-menu" data-options="checkbox: true">
+				</div>
+				
+				<div class="treegrid-wrapper">
+					<div class="title">
+						<h4></h4>
+						<i class="fa fa-close"></i>
+					</div>
+					<ul class="btn-list">
+
+						<li class="btn-item"><i class="iconfont icon-add add" title="添加"></i></li>
+						<li class="btn-item"><i class="iconfont icon-del del" title="删除"></i></li>
+						<li class="btn-item"><i class="iconfont icon-edit edit" title="编辑"></i></li>
+						<li class="btn-item"><i class="iconfont icon-set set" title="设置"></i></li>
+						<!-- <li class="btn-item close"><i class="fa fa-close"></i></li> -->
+					</ul>
+					<table id="treegrid" style="width:600px;height:400px"></table>
+				</div>
+				<div class="set-page">
+					<div class="title">
+						<h4>
+							表格设置
+							<i class="fa fa-close"></i>
+						</h4>
+						
+					</div>
+					<ul id="tree" class="easyui-tree tree" data-options="checkbox: true">
+						<!-- <li id="position" flied="position"><span>方位角</span></li>
+						<li id="pitch" flied="pitch"><span>俯仰角</span></li>
+						<li id="roll" flied="roll"><span>滚转角</span></li>
+						<li id="X" flied="X"><span>X轴</span></li>
+						<li id="Y" flied="Y"><span>Y轴</span></li>
+						<li id="Z" flied="Z"><span>Z轴</span></li> -->
+					</ul>
+					<div class="sure-box">
+						<div class="btn sure">确定</div>
+					</div>
+				</div>
+				<div class="add-edit">
+					<div class="title">
+						<h4>添加/编辑
+							<i class="fa fa-close"></i>
+						</h4>
+					</div>
+					<div class="attr-wrapper">
+						<div class="attr">业务属性<i class="fa fa-angle-double-down"></i></div>
+						<ul class="input-list"></ul>
+					</div>
+					<div class="attr-wrapper">
+						<div class="attr">显示属性<i class="fa fa-angle-double-down"></i></div>
+						<ul class="input-list">
+							<li class="input-item">
+								<label>经度：</label>
+								<input id="input-lon" class="easyui-numberspinner" style="height:28px" data-options="increment:0.0000001,precision: 7,min:-180,max:180">
+							</li>
+							<li class="input-item">
+								<label>纬度：</label>
+								<input id="input-lat" class="easyui-numberspinner" style="height:28px" data-options="increment:0.0000001,precision: 7,min:-180,max:180">
+							</li>
+							<li class="input-item">
+								<label>图标：</label>
+								<select id="input-icon" class="easyui-combobox" name="icon" style="width: 131px;height:28px;" data-options="panelHeight:140,editable:false">
+								    <option value="0">icon1</option>
+								    <option value="0">icon12</option>
+								    <option value="0">icon13</option>
+								    <option value="0">icon14</option>
+								    <option value="0">icon15</option>
+								</select>
+							</li>
+							<li class="input-item">
+								<div class="btn"><i class="fa fa-globe" title="拾取三维系数"></i></div>
+							</li>
+						</ul>
+					</div>
+					<div class="sure-box">
+						<div class="btn sure">确定</div>
+					</div>
+				</div>
+				<div class="del-box">
+					<div class="title">
+						<i class="fa fa-close"></i>
+					</div>
+					<div class="content">是否删除</div>
+					<div class="sure-box">
+						<div class="btn sure">确认</div>
+					</div>
+				</div>
+				<div class="show">
+					<div class="title">
+						<h4>
+							<span></span>
+							<i class="fa fa-close"></i>
+						</h4>
+					</div>
+					<ul class="show-list clearfix">
+						
+					</ul>
+					<div class="swiper-container">
+					    <div class="swiper-wrapper">
+					    	
+					    </div>
+					    <!-- 如果需要分页器 -->
+					    <div class="swiper-pagination"></div>
+					    
+					    <!-- 如果需要导航按钮 -->
+					    <div class="swiper-button-prev"></div>
+					    <div class="swiper-button-next "></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--<script src="static/js/demo.js"></script>-->
+	<script src="static/js/demo2.js"></script>
+	<script src="static/js/storage.js"></script>
+	<script src="static/js/earth.js"></script>
+	<script src="static/js/CoverageUtil.js"></script>
+	<script src="static/js/compass/Compass.js"></script>
+	<script src="static/js/FreeDoTool.js"></script>
+</body>
+</html>

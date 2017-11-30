@@ -1,0 +1,23 @@
+[
+  {"id":"1","lineid":"road1","text":"道路1","type":"road","class":"二级","length":"10987","number":"20","width":"200","texture":"纹理图",
+  	"src":[
+  	            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+  	        ]
+  },
+  {"id":"2","lineid":"road2","text":"道路2","type":"road","class":"二级","length":"10987","number":"20","width":"200","texture":"纹理图",
+  	"src":[
+  	            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+  	        ]
+  },
+  {"id":"3","lineid":"road3","text":"道路3","type":"road","class":"二级","length":"10987","number":"20","width":"200","texture":"纹理图",
+  	"src":[
+  	            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+  	        ]
+  },
+  {"id":"4","lineid":"road4","text":"道路4","type":"road","class":"二级","length":"10987","number":"20","width":"200","texture":"纹理图",
+  	"src":[
+  	            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+  	        ]
+}
+	
+]

@@ -1,0 +1,11 @@
+[
+  {"id":"1","text":"学校","checked":false,"src":"./static/school.json","type":"school"},
+  {"id":"2","text":"消防","checked":false,"src":"./static/fire.json","type":"fire"},
+  {"id":"3","text":"公安","checked":false,"src":"./static/police.json","type":"police"},
+  {"id":"4","text":"医院","checked":false,"src":"./static/hospital.json","type":"hospital"},
+  {"id":"5","text":"道路","checked":false,"src":"./static/road.json","type":"road"},
+  {"id":"6","text":"桥梁","checked":false,"src":"./static/bridge.json","type":"bridge"},
+  {"id":"7","text":"养路段","checked":false,"src":"./static/roads.json","type":"yangluduan"},
+  {"id":"8","text":"行政区域","checked":true,"src":"./static/government.json","type":"government"}
+	
+]

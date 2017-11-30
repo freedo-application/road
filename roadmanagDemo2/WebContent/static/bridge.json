@@ -1,0 +1,23 @@
+[
+  {"id":"1","labelid":"bridge1","text":"桥梁1","type":"bridge","classType":"类型","length":"10987","limitWeight":"20","lon":"10","lat":"20",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"2","labelid":"bridge2","text":"桥梁2","type":"bridge","classType":"类型","length":"10987","limitWeight":"20","lon":"10","lat":"20",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"3","labelid":"bridge3","text":"桥梁3","type":"bridge","classType":"类型","length":"10987","limitWeight":"20","lon":"10","lat":"20",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"4","labelid":"bridge4","text":"桥梁4","type":"bridge","classType":"类型","length":"10987","limitWeight":"20","lon":"10","lat":"20",
+  	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+}
+	
+]

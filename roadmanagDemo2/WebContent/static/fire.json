@@ -1,0 +1,23 @@
+  [
+    {"id":"1","labelid":"fire1","text":"消防1","type":"fire","phone":"1090111","person":"张三","lon":"20","lat":"10","height":"30",
+    	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+    },
+    {"id":"2","labelid":"fire2","text":"消防2","type":"fire","phone":"1090111","person":"张三","lon":"20","lat":"10","height":"30",
+    	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+    },
+    {"id":"3","labelid":"fire3","text":"消防3","type":"fire","phone":"1090111","person":"张三","lon":"20","lat":"10","height":"30",
+    	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+    },
+    {"id":"4","labelid":"fire4","text":"消防4","type":"fire","phone":"1090111","person":"张三","lon":"20","lat":"10","height":"30",
+    	"src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+}
+  	
+  ]

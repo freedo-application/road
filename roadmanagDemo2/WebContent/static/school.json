@@ -1,0 +1,28 @@
+[
+  {"id":"1","labelid":"school1","text":"学校1","type":"school","phone":"1090111","person":"张三","studentNum":"1000","techerNum":"89","lon":"20","lat":"10","height":"30",
+  	"src":[
+  			"https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1351738971,3911947150&fm=173&s=40993ED5C407D74B0435A47E03005073&w=500&h=379&img.JPEG",
+  			"https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3612405506,4022406782&fm=173&s=550260B942F2D7FF4EB955880300E091&w=640&h=480&img.JPEG",
+  			"https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+  	]
+  },
+  {"id":"2","labelid":"school2","text":"学校2","type":"school","phone":"1090111","person":"张三","studentNum":"1000","techerNum":"89","lon":"20","lat":"10","height":"30",
+    "src":[
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"3","labelid":"school3","text":"学校3","type":"school","phone":"1090111","person":"张三","studentNum":"1000","techerNum":"89","lon":"20","lat":"10","height":"30",
+    "src":[
+            "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1351738971,3911947150&fm=173&s=40993ED5C407D74B0435A47E03005073&w=500&h=379&img.JPEG",
+            "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3612405506,4022406782&fm=173&s=550260B942F2D7FF4EB955880300E091&w=640&h=480&img.JPEG",
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+  },
+  {"id":"4","labelid":"school4","text":"学校4","type":"school","phone":"1090111","person":"张三","studentNum":"1000","techerNum":"89","lon":"20","lat":"10","height":"30",
+    "src":[
+            "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1351738971,3911947150&fm=173&s=40993ED5C407D74B0435A47E03005073&w=500&h=379&img.JPEG",
+            "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1794947026,4282652297&fm=173&s=07A4D6054C50FCCEC48FC9920300C0AA&w=553&h=368&img.JPEG"
+        ]
+}
+	
+]

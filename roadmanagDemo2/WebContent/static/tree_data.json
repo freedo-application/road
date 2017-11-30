@@ -1,0 +1,58 @@
+
+{
+	"school": [
+			{"id":"phone","text":"联系方式","checked":false},
+			{"id":"studentNum","text":"学生人数","checked":false},
+			{"id":"techerNum","text":"教师人数","checked":false},
+			{"id":"src","text":"图片","checked":false},
+			{"id":"lon","text":"经度","checked":false},
+			{"id":"lat","text":"纬度","checked":false}
+		],
+	"fire":[
+			{"id":"src","text":"图片","checked":false},
+			{"id":"lon","text":"经度","checked":false},
+			{"id":"lat","text":"纬度","checked":false}
+		],
+	"police":[
+			{"id":"src","text":"图片","checked":false},
+			{"id":"lon","text":"经度","checked":false},
+			{"id":"lat","text":"纬度","checked":false}
+		],
+	"hospital":[
+			{"id":"src","text":"图片","checked":false},
+			{"id":"lon","text":"经度","checked":false},
+			{"id":"lat","text":"纬度","checked":false},
+			{"id":"class","text":"等级","checked":false}
+		],
+	"road":[
+			{"id":"src","text":"图片","checked":false},
+			
+			{"id":"number","text":"车道数","checked":false},
+			{"id":"width","text":"宽度(m)","checked":false},
+			{"id":"texture","text":"纹理图","checked":false}
+		],
+	"bridge":[
+			{"id":"src","text":"图片","checked":false},
+			{"id":"lon","text":"经度","checked":false},
+			{"id":"lat","text":"纬度","checked":false},
+			{"id":"limitWeight","text":"限重","checked":false}
+		],
+	"roads":[
+			{"id":"src","text":"图片","checked":false},
+			{"id":"lon","text":"经度","checked":false},
+			{"id":"lat","text":"纬度","checked":false}
+		],
+	"government":[
+			// {"id":"src","text":"图片","checked":false},
+			// {"id":"lon","text":"经度","checked":false},
+			// {"id":"lat","text":"纬度","checked":false}
+		]
+	
+}
+
+	
+		
+
+	
+  
+	
