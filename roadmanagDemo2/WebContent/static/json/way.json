@@ -9,7 +9,7 @@
 		],
 		"wide":5,
 		"fillColor":"FreeDo.Color.YELLOW.withAlpha(0.5)",
-		"showDistanceNear":0,
+		"showDistanceNear":2600,
 		"showDistanceFar":50000
 	},
 	{
@@ -24,7 +24,7 @@
 		],
 		"wide":5,
 		"fillColor":"FreeDo.Color.YELLOW.withAlpha(0.5)",
-		"showDistanceNear":0,
+		"showDistanceNear":2600,
 		"showDistanceFar":50000
 	},
 	{
@@ -38,7 +38,7 @@
 		],
 		"wide":5,
 		"fillColor":"FreeDo.Color.YELLOW.withAlpha(0.5)",
-		"showDistanceNear":0,
+		"showDistanceNear":2600,
 		"showDistanceFar":50000
 	},
 	{
@@ -60,7 +60,7 @@
 		],
 		"wide":5,
 		"fillColor":"FreeDo.Color.YELLOW.withAlpha(0.5)",
-		"showDistanceNear":0,
+		"showDistanceNear":2600,
 		"showDistanceFar":50000
 	}
 ]

@@ -2,13 +2,13 @@ var myViewer = null;
 $(function(){
 	myViewer = initEarth("earth");
 	//屏蔽左下角图标
-	//myViewer._cesiumWidget._creditContainer.style.display="none";
+	myViewer._cesiumWidget._creditContainer.style.display="none";
 	//道路和地名
 	yingxiang = CoverageUtil.addImage();
 	//var dixing = CoverageUtil.addTitle();
 	CoverageUtil.addImageryProvider(myViewer,yingxiang,1);
 	//CoverageUtil.addImageryProvider(myViewer,dixing,1);
-	//CoverageUtil.addTerrain(myViewer);
+	CoverageUtil.addTerrain(myViewer);
 	
 	
 	new Compass(myViewer);
@@ -69,7 +69,7 @@ $(function(){
 			var billboardshowDistanceNear =  data[i].billboardshowDistanceNear;
 			var billboardshowDistanceFar = data[i].billboardshowDistanceFar;
 			var description = data[i].description;
-			var label = CoverageUtil.addLabel(myViewer,id,lon,lat,0,name,font,scale,eval(color),showLabel,backGround,new FreeDo.DistanceDisplayCondition(showDistanceNear,showDistanceFar),eval(backGroundColor),FreeDo.HorizontalOrigin.LEFT,FreeDo.HorizontalOrigin.LEFT,showPoint,pointSize,eval(pointColor),eval(pointOutlineColor),pointOutlineWidth,new FreeDo.DistanceDisplayCondition(pointshowDistanceNear,pointshowDistanceFar),eval(pixelOffset),image,showBillboard,billboardWidth,billboardHeight,billboardScale,billboardshowDistanceNear,billboardshowDistanceFar);
+			var label = CoverageUtil.addLabel(myViewer,id,lon,lat,15,name,font,scale,eval(color),showLabel,backGround,new FreeDo.DistanceDisplayCondition(showDistanceNear,showDistanceFar),eval(backGroundColor),FreeDo.HorizontalOrigin.LEFT,FreeDo.HorizontalOrigin.LEFT,showPoint,pointSize,eval(pointColor),eval(pointOutlineColor),pointOutlineWidth,new FreeDo.DistanceDisplayCondition(pointshowDistanceNear,pointshowDistanceFar),eval(pixelOffset),image,showBillboard,billboardWidth,billboardHeight,billboardScale,billboardshowDistanceNear,billboardshowDistanceFar);
 			label.type = type;
 			label.description = description;
 			labels.push(label);
@@ -127,22 +127,22 @@ $(function(){
 	/*----------------------------------加道路---------------------------------------*/
 	var scene=myViewer.scene;
 	var userdata1 =[
-		{lon:117.25505875721869,lat:39.98177210365956,height:5},
-		{lon:117.28483434827947,lat:39.98298808144714,height:5}
+		{lon:117.25505875721869,lat:39.98177210365956,height:15},
+		{lon:117.28483434827947,lat:39.98298808144714,height:15}
 	];
 	
 	var userdata2 =[
-		{lon:117.28472774151653,lat:39.98864346369405,height:5},
-		{lon:117.28500034922028,lat:39.97743018010012,height:5},
-		{lon:117.29090037961728,lat:39.977495571595995,height:5},
-		{lon:117.29312110691328,lat:39.97768005029566,height:5}
+		{lon:117.28472774151653,lat:39.98864346369405,height:15},
+		{lon:117.28500034922028,lat:39.97743018010012,height:15},
+		{lon:117.29090037961728,lat:39.977495571595995,height:15},
+		{lon:117.29312110691328,lat:39.97768005029566,height:15}
 	];
 	
 	var userdata3 =[
-		{lon:117.29088958460301,lat:39.97750388054197,height:5},
-		{lon:117.29149152474821,lat:39.97386967567217,height:5},
-		{lon:117.29231871686834,lat:39.972028085422174,height:5},
-		{lon:117.29260402553533,lat:39.97042628238812,height:5}
+		{lon:117.29088958460301,lat:39.97750388054197,height:15},
+		{lon:117.29149152474821,lat:39.97386967567217,height:15},
+		{lon:117.29231871686834,lat:39.972028085422174,height:15},
+		{lon:117.29260402553533,lat:39.97042628238812,height:15}
 	];
 	var imgurl1 = "./static/img/road/road1.jpg";
 	var imgurl2 = "./static/img/road/road2.jpg";
@@ -183,7 +183,7 @@ RailwayByDistance = function(){
 	//console.log(Camerap)
 	//相机的经纬高
 	var wgs84 = ellipsoid.cartesianToCartographic(Camerap);
-	//console.log(wgs84);
+	console.log(wgs84);
 	if(wgs84.height<3000){
 		CoverageUtil.hideCoverage(1);
 	}else{
