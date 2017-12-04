@@ -183,7 +183,7 @@ RailwayByDistance = function(){
 	//console.log(Camerap)
 	//相机的经纬高
 	var wgs84 = ellipsoid.cartesianToCartographic(Camerap);
-	console.log(wgs84);
+	//console.log(wgs84);
 	if(wgs84.height<3000){
 		CoverageUtil.hideCoverage(1);
 	}else{
